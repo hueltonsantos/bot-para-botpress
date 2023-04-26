@@ -1,0 +1,47 @@
+[
+  {
+    "id": "builtin_single-choice-qBgJQv",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Suporte",
+          "value": "suporte"
+        },
+        {
+          "title": "Financeiro",
+          "value": "financeiro"
+        },
+        {
+          "title": "Encerrar",
+          "value": "encerrar"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "Por favor escolha uma opção:\n\n1 - Suporte\n2 - Financeiro\n0 - Encerrar",
+      "text$pt": "Por favor escolha uma opção:\n\n1 - Suporte\n2 - Financeiro\n0 - Encerrar",
+      "dropdownPlaceholder$pt": "Select...",
+      "choices$pt": [
+        {
+          "title": "Suporte",
+          "value": "suporte"
+        },
+        {
+          "title": "Financeiro",
+          "value": "financeiro"
+        },
+        {
+          "title": "Encerrar",
+          "value": "encerrar"
+        }
+      ],
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T00:03:50.631Z",
+    "modifiedOn": "2022-07-20T15:19:22.747Z"
+  }
+]

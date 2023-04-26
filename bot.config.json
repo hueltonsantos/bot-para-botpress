@@ -1,0 +1,57 @@
+{
+  "locked": false,
+  "disabled": false,
+  "private": false,
+  "details": {
+    "website": "https://hueltonsites.com",
+    "phoneNumber": "5577999882930",
+    "emailAddress": "hueltonti@gmail.com",
+    "termsConditions": "",
+    "privacyPolicy": "",
+    "avatarUrl": "/api/v1/bots/BOT_ID_PLACEHOLDER/media/c36y24370r4r4ma1j199-avatar-bot.0f686821.png",
+    "coverPictureUrl": "/api/v1/bots/BOT_ID_PLACEHOLDER/media/qzz09ocyvvxsyooi32dy-logoVyaNegativo.png"
+  },
+  "$schema": "../../bot.config.schema.json",
+  "description": "Atendimento Padrão",
+  "active": true,
+  "version": "12.28.1",
+  "author": "Botpress, Inc.",
+  "license": "AGPL-3.0",
+  "imports": {
+    "modules": [],
+    "incomingMiddleware": [],
+    "outgoingMiddleware": [],
+    "contentTypes": [
+      "builtin_action-button",
+      "builtin_audio",
+      "builtin_card",
+      "builtin_carousel",
+      "dropdown",
+      "builtin_file",
+      "builtin_image",
+      "builtin_location",
+      "builtin_single-choice",
+      "builtin_text",
+      "builtin_video"
+    ]
+  },
+  "dialog": {
+    "timeoutInterval": "10m"
+  },
+  "logs": {
+    "expiration": "1 week"
+  },
+  "defaultLanguage": "pt",
+  "languages": [
+    "pt"
+  ],
+  "id": "bot",
+  "name": "teste",
+  "pipeline_status": {
+    "current_stage": {
+      "id": "prod",
+      "promoted_on": "2023-04-26T19:26:17.140Z",
+      "promoted_by": "system"
+    }
+  }
+}

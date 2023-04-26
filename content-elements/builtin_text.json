@@ -1,0 +1,128 @@
+[
+  {
+    "id": "builtin_text-Ryhu60",
+    "formData": {
+      "text$en": "Opção inválida. Por favor escolha uma opção numérica.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "Opção inválida. Por favor escolha uma opção numérica.",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T00:04:33.447Z",
+    "modifiedOn": "2022-07-20T15:19:22.794Z"
+  },
+  {
+    "id": "builtin_text-A0b_tq",
+    "formData": {
+      "text$en": "Importante: estamos fora do horário de atendimento.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "Importante: estamos fora do horário de atendimento.",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T02:39:29.218Z",
+    "modifiedOn": "2022-07-20T15:19:22.848Z"
+  },
+  {
+    "id": "builtin_text-34CoRe",
+    "formData": {
+      "text$en": "Olá, tudo bem? \nPara começar, me informa teu CPF por favor...",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "Olá, tudo bem? \nPara começar, me informa teu CPF por favor...",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T03:18:36.151Z",
+    "modifiedOn": "2022-07-20T15:19:22.892Z"
+  },
+  {
+    "id": "builtin_text-4SKP9M",
+    "formData": {
+      "text$en": "O CPF {{temp.cpf}} é inválido. Por favor digite um CPF com 11 dígitos.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "O CPF {{temp.cpf}} é inválido. Por favor digite um CPF com 11 dígitos.",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T03:22:17.797Z",
+    "modifiedOn": "2022-07-20T15:19:22.942Z"
+  },
+  {
+    "id": "builtin_text-YLtalk",
+    "formData": {
+      "text$en": "O CPF continua inválido, mas vamos prosseguir...",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "O CPF continua inválido, mas vamos prosseguir...",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T03:26:39.329Z",
+    "modifiedOn": "2022-07-20T15:19:22.987Z"
+  },
+  {
+    "id": "builtin_text-IZqhK7",
+    "formData": {
+      "text$en": "Obrigado! 😀",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "Obrigado! 😀",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T03:37:42.678Z",
+    "modifiedOn": "2022-07-20T15:19:23.031Z"
+  },
+  {
+    "id": "builtin_text-Iu2qy5",
+    "formData": {
+      "text$en": "Agora me informa o CEP de sua residência.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "Agora me informa o CEP de sua residência.",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T03:47:45.217Z",
+    "modifiedOn": "2022-07-20T15:19:23.064Z"
+  },
+  {
+    "id": "builtin_text-FE7Q2x",
+    "formData": {
+      "text$en": "Endereço encontrado: {{temp.logradouro}}, no bairro {{temp.bairro}} em {{temp.cidade}}. Código IBGE: {{temp.ibge}}.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "Endereço encontrado: {{temp.logradouro}}, no bairro {{temp.bairro}} em {{temp.cidade}}. Código IBGE: {{temp.ibge}}.",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T04:15:55.511Z",
+    "modifiedOn": "2022-07-20T15:19:23.099Z"
+  },
+  {
+    "id": "builtin_text-pkjRat",
+    "formData": {
+      "text$en": "O CEP que me informou não é válido. Mas vamos seguir...",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$pt": "O CEP que me informou não é válido. Mas vamos seguir...",
+      "markdown$pt": true,
+      "typing$pt": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-07-20T04:16:55.433Z",
+    "modifiedOn": "2022-07-20T15:19:23.134Z"
+  }
+]

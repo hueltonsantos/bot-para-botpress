@@ -1,0 +1,273 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": []
+  },
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "entry",
+      "name": "entry",
+      "next": [
+        {
+          "condition": "event.payload.text == \"Contato Ativo\"",
+          "conditionType": "raw",
+          "node": "Ativo"
+        },
+        {
+          "condition": "event.state.temp.BusinessTime === true",
+          "conditionType": "raw",
+          "node": "Checa_CPF"
+        },
+        {
+          "condition": "event.state.temp.BusinessTime === false",
+          "conditionType": "raw",
+          "node": "Fora_do_Horario"
+        }
+      ],
+      "onEnter": [
+        "horario-atendimento {}"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "80a789681a",
+      "name": "Ativo",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-2a7ab1",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "choice-2a7ab1",
+      "flow": "skills/choice-2a7ab1.flow.json",
+      "next": [
+        {
+          "caption": "User picked [suporte]",
+          "condition": "temp['skill-choice-ret-erro'] == \"suporte\"",
+          "node": "Suporte"
+        },
+        {
+          "caption": "User picked [finance...]",
+          "condition": "temp['skill-choice-ret-erro'] == \"financeiro\"",
+          "node": "Financeiro"
+        },
+        {
+          "caption": "User picked [encerrar]",
+          "condition": "temp['skill-choice-ret-erro'] == \"encerrar\"",
+          "node": "Encerrar"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Encerrar"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "1837cca32a",
+      "name": "Suporte",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "rocket-transfer {\"department\":\"Suporte\",\"transferText\":\"Transferindo para o suporte...\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "17bfa1df82",
+      "name": "Financeiro",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "rocket-transfer {\"department\":\"Financeiro\",\"transferText\":\"Transferindo para o financeiro...\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "1b54ed1a0b",
+      "name": "Encerrar",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "rocket-close {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "640cd8c4aa",
+      "name": "Fora_do_Horario",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Checa_CPF"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-A0b_tq"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "58d397c6ae",
+      "name": "Checa_CPF",
+      "next": [
+        {
+          "condition": "event.state.temp.cpfValido == true",
+          "conditionType": "raw",
+          "node": "node-d49f"
+        },
+        {
+          "condition": "event.state.temp.cpfValido == false",
+          "conditionType": "raw",
+          "node": "CPF_Invalido"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-34CoRe"
+      ],
+      "onReceive": [
+        "grava-cpf {\"cpf\":\"{{event.payload.text}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "0d529b2de1",
+      "name": "CPF_Invalido",
+      "next": [
+        {
+          "condition": "event.state.temp.cpfValido == true",
+          "conditionType": "raw",
+          "node": "node-d49f"
+        },
+        {
+          "condition": "event.state.temp.cpfValido == false",
+          "conditionType": "raw",
+          "node": "Continua_Invalido"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-4SKP9M"
+      ],
+      "onReceive": [
+        "grava-cpf {\"cpf\":\"{{event.payload.text}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "0c220f67aa",
+      "name": "Continua_Invalido",
+      "next": [
+        {
+          "condition": "true",
+          "node": "CEP"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-YLtalk"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "518da425cd",
+      "name": "node-d49f",
+      "next": [
+        {
+          "condition": "true",
+          "node": "CEP"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-IZqhK7"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "2a046b27ce",
+      "name": "CEP",
+      "next": [
+        {
+          "condition": "event.state.temp.cepValido == true",
+          "conditionType": "raw",
+          "node": "node-a432"
+        },
+        {
+          "condition": "event.state.temp.cepValido == false",
+          "conditionType": "raw",
+          "node": "node-4fb4"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-Iu2qy5"
+      ],
+      "onReceive": [
+        "grava-cep {\"cep\":\"{{event.payload.text}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "b95fb97157",
+      "name": "node-a432",
+      "next": [
+        {
+          "condition": "true",
+          "node": "choice-2a7ab1"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-FE7Q2x"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "0524678b89",
+      "name": "node-4fb4",
+      "next": [
+        {
+          "condition": "true",
+          "node": "choice-2a7ab1"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-pkjRat"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

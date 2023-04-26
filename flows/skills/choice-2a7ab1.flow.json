@@ -1,0 +1,107 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "jzlzzikqor",
+    "contentId": "builtin_single-choice-qBgJQv",
+    "invalidContentId": "builtin_text-Ryhu60",
+    "keywords": {
+      "suporte": [
+        "suporte",
+        "Suporte",
+        "1"
+      ],
+      "financeiro": [
+        "financeiro",
+        "Financeiro",
+        "2"
+      ],
+      "encerrar": [
+        "encerrar",
+        "Encerrar",
+        "0"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 3,
+      "repeatChoicesOnInvalid": true,
+      "variableName": "erro"
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-qBgJQv {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "185304"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"erro\",\"contentId\":\"builtin_single-choice-qBgJQv\",\"invalidContentId\":\"builtin_text-Ryhu60\",\"keywords\":{\"suporte\":[\"suporte\",\"Suporte\",\"1\"],\"financeiro\":[\"financeiro\",\"Financeiro\",\"2\"],\"encerrar\":[\"encerrar\",\"Encerrar\",\"0\"]},\"config\":{\"nbMaxRetries\":3,\"repeatChoicesOnInvalid\":true,\"variableName\":\"erro\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-erro'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "600769"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"erro\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-erro']) > Number(3)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "781222"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-Ryhu60 {}",
+        "say #!builtin_single-choice-qBgJQv {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "343983"
+    }
+  ]
+}
